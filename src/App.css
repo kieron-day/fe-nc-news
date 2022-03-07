@@ -87,7 +87,7 @@
 	width: 150px;
 	border-radius: 5px;
 	background-color: #e5171e;
-	border: black solid 2px;
+	border: black solid 1px;
 	color: white;
 	font-size: 1.1em;
 }
@@ -97,16 +97,33 @@
 }
 
 .App-content {
-	margin: 2% 10%;
+	margin: 2% 5%;
 }
 
 .App-content-title {
 	text-transform: capitalize;
 }
 
+.App-content-dropdown {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 10px 0px;
+	font-size: 1.2em;
+}
+
+.dropdown-sortby {
+	margin: 5px 10px;
+}
+
+.dropdown-orderby {
+	margin: 5px 10px;
+}
+
 .App-articles-list {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 	grid-gap: 40px;
 }
 
@@ -176,4 +193,12 @@ a {
 
 h3 {
 	font-weight: 500;
+}
+
+select {
+	background-color: rgb(232, 232, 232);
+	font-size: 1em;
+	margin: 0px 10px;
+	padding: 5px 5px;
+	border-radius: 5px;
 }

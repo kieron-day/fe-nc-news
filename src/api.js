@@ -10,10 +10,16 @@ export const fetchTopics = () => {
 	});
 };
 
-export const fetchArticles = (topic) => {
-	let queryStr = "/articles";
-	if (topic) queryStr += `?topic=${topic}`;
-	return api.get(queryStr).then(({ data: { articles } }) => {
-		return articles;
-	});
+export const fetchArticles = (topic, sortBy, order) => {
+	return api
+		.get("/articles", {
+			params: {
+				topic: topic,
+				sort_by: sortBy,
+				order: order,
+			},
+		})
+		.then(({ data: { articles } }) => {
+			return articles;
+		});
 };
