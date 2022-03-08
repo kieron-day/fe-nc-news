@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ArticleCard = ({ article }) => {
 	const getDay = article.created_at.slice(8, 10);
 	const getMonth = article.created_at.slice(5, 7);
@@ -5,8 +7,14 @@ const ArticleCard = ({ article }) => {
 
 	const formatPublished = `${getDay}/${getMonth}/${getYear}`;
 
+	const linkStr = article.article_id;
+	console.log(linkStr);
+
 	return (
-		<div className="App-articles-list-articlecard">
+		<Link
+			to={`/articles/${article.article_id}`}
+			className="App-articles-list-articlecard"
+		>
 			<div className="articlecard-top-row">
 				<div className="articlecard-votes">
 					<i className="fa-solid fa-thumbs-up fa-xl"></i>
@@ -22,7 +30,7 @@ const ArticleCard = ({ article }) => {
 				<i className="fa-solid fa-comment fa-xl"></i>
 				<h3>{article.comment_count}</h3>
 			</div>
-		</div>
+		</Link>
 	);
 };
 

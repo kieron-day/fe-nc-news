@@ -23,3 +23,9 @@ export const fetchArticles = (topic, sortBy, order) => {
 			return articles;
 		});
 };
+
+export const fetchArticle = (article_id) => {
+	return api.get(`/articles/${article_id}`).then(({ data: { article } }) => {
+		return article;
+	});
+};
