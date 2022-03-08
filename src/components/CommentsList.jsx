@@ -16,7 +16,7 @@ const CommentsList = ({ article: { article_id, comment_count } }) => {
 	return (
 		<section>
 			{isLoading ? (
-				<p>Loading...</p>
+				<p>Loading Comments...</p>
 			) : (
 				<>
 					<div className="article-comments">
@@ -24,7 +24,7 @@ const CommentsList = ({ article: { article_id, comment_count } }) => {
 						<h2>{`Comments (${comment_count})`} </h2>
 					</div>
 					{comments.map((comment) => {
-						return <CommentCard key={comments.comment_id} comment={comment} />;
+						return <CommentCard key={comment.comment_id} comment={comment} />;
 					})}
 				</>
 			)}
