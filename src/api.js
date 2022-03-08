@@ -29,3 +29,11 @@ export const fetchArticle = (article_id) => {
 		return article;
 	});
 };
+
+export const fetchComments = (article_id) => {
+	return api
+		.get(`/articles/${article_id}/comments`)
+		.then(({ data: { comments } }) => {
+			return comments;
+		});
+};

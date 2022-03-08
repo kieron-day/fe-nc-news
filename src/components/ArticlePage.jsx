@@ -6,7 +6,7 @@
 import { fetchArticle } from "../api";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Comments from "./Comments";
+import CommentsList from "./CommentsList";
 
 const ArticlePage = () => {
 	const [article, setArticle] = useState([]);
@@ -53,11 +53,7 @@ const ArticlePage = () => {
 					<h3>By {article.author}</h3>
 					<h4>{getDate(article)}</h4>
 					<p className="article-body">{article.body}</p>
-					<div className="article-comments">
-						<i className="fa-solid fa-comment fa-xl"></i>
-						<h3>{article.comment_count}</h3>
-					</div>
-					<Comments />
+					<CommentsList article={article} />
 				</article>
 			)}
 		</main>
