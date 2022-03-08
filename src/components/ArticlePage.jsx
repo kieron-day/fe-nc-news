@@ -6,6 +6,7 @@
 import { fetchArticle } from "../api";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Comments from "./Comments";
 
 const ArticlePage = () => {
 	const [article, setArticle] = useState([]);
@@ -56,6 +57,7 @@ const ArticlePage = () => {
 						<i className="fa-solid fa-comment fa-xl"></i>
 						<h3>{article.comment_count}</h3>
 					</div>
+					<Comments />
 				</article>
 			)}
 		</main>

@@ -7,9 +7,6 @@ const ArticleCard = ({ article }) => {
 
 	const formatPublished = `${getDay}/${getMonth}/${getYear}`;
 
-	const linkStr = article.article_id;
-	console.log(linkStr);
-
 	return (
 		<Link
 			to={`/articles/${article.article_id}`}
