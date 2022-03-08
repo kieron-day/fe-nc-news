@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
-import MainContent from "./components/MainContent";
+import ArticleList from "./components/ArticleList";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -8,9 +8,9 @@ function App() {
 		<div className="App">
 			<Header />
 			<Routes>
-				<Route path="/" element={<MainContent />} />
-				<Route path="/topics/" element={<MainContent />} />
-				<Route path="/topics/:topic/articles" element={<MainContent />} />
+				<Route path="/" element={<ArticleList />} />
+				<Route path="/topics/" element={<ArticleList />} />
+				<Route path="/topics/:topic/articles" element={<ArticleList />} />
 			</Routes>
 		</div>
 	);

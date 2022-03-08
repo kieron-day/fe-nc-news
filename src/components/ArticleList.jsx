@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import { useParams } from "react-router-dom";
 
-const MainContent = () => {
+const ArticleList = () => {
 	const [articleList, setArticleList] = useState([]);
 	const [sortBy, setSortBy] = useState("created_at");
 	const [order, setOrder] = useState("desc");
@@ -64,4 +64,4 @@ const MainContent = () => {
 	);
 };
 
-export default MainContent;
+export default ArticleList;
