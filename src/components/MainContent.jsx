@@ -4,10 +4,10 @@ import ArticleCard from "./ArticleCard";
 import { useParams } from "react-router-dom";
 
 const MainContent = () => {
-	const [isLoading, setIsLoading] = useState(true);
 	const [articleList, setArticleList] = useState([]);
 	const [sortBy, setSortBy] = useState("created_at");
 	const [order, setOrder] = useState("desc");
+	const [isLoading, setIsLoading] = useState(true);
 	const { topic } = useParams();
 
 	useEffect(() => {

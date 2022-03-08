@@ -191,8 +191,18 @@ a {
 	color: inherit;
 }
 
+h2 {
+	font-weight: 500;
+	font-size: 1.2em;
+}
+
 h3 {
 	font-weight: 500;
+	font-size: 1.1em;
+}
+
+h4 {
+	font-weight: 300;
 }
 
 select {
