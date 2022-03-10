@@ -373,6 +373,15 @@
 	margin: 5px;
 }
 
+.fa-trash-can {
+	font-size: 1.2em;
+	margin: 10px;
+}
+
+.fa-trash-can:hover {
+	color: #a00f14;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
