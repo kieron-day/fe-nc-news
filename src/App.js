@@ -9,7 +9,7 @@ function App() {
 	const [user, setUser] = useState("cooljmessy");
 	return (
 		<div className="App">
-			<Header />
+			<Header user={user} />
 			<Routes>
 				<Route path="/" element={<ArticleList />} />
 				<Route path="/topics/" element={<ArticleList />} />

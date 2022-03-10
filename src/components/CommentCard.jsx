@@ -24,8 +24,6 @@ const CommentCard = (props) => {
 				<h3 className="comment-date">{getDate(props.comment)}</h3>
 			</section>
 			<h3 className="comment-body">{props.comment.body}</h3>
-			{console.log(props.user)}
-			{console.log(props.comment.author)}
 			{props.user === props.comment.author ? (
 				<>
 					<button disabled={deleteButton} onClick={handleDelete}>
