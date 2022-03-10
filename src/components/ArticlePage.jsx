@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import CommentsList from "./CommentsList";
 
-const ArticlePage = () => {
+const ArticlePage = ({ user }) => {
 	const [article, setArticle] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const { article_id } = useParams();
@@ -53,7 +53,7 @@ const ArticlePage = () => {
 					<h3>By {article.author}</h3>
 					<h4>{getDate(article)}</h4>
 					<p className="article-body">{article.body}</p>
-					<CommentsList article={article} />
+					<CommentsList article={article} user={user} />
 				</article>
 			)}
 		</main>

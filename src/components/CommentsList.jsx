@@ -3,19 +3,19 @@ import AddComment from "./AddComment";
 import CommentCard from "./CommentCard";
 import { useEffect, useState } from "react";
 
-const CommentsList = ({ article: { article_id, comment_count } }) => {
+const CommentsList = ({ article: { article_id, comment_count }, user }) => {
 	const [comments, setComments] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
-	const [commentAdded, setCommentAdded] = useState(false);
+	const [commentUpdated, setCommentUpdated] = useState(false);
 	const [commentCount, setCommentCount] = useState(comment_count);
 
 	useEffect(() => {
 		fetchComments(article_id).then((comments) => {
 			setComments(comments);
 			setIsLoading(false);
-			setCommentAdded(false);
+			setCommentUpdated(false);
 		});
-	}, [article_id, commentAdded, commentCount]);
+	}, [article_id, commentUpdated, commentCount]);
 
 	return (
 		<section>
@@ -30,14 +30,22 @@ const CommentsList = ({ article: { article_id, comment_count } }) => {
 					<section>
 						<AddComment
 							article_id={article_id}
-							commentAdded={commentAdded}
-							setCommentAdded={setCommentAdded}
+							commentUpdated={commentUpdated}
+							setCommentUpdated={setCommentUpdated}
 							commentCount={commentCount}
 							setCommentCount={setCommentCount}
 						/>
 					</section>
 					{comments.map((comment) => {
-						return <CommentCard key={comment.comment_id} comment={comment} />;
+						return (
+							<CommentCard
+								key={comment.comment_id}
+								comment={comment}
+								commentUpdated={commentUpdated}
+								setCommentUpdated={setCommentUpdated}
+								user={user}
+							/>
+						);
 					})}
 				</>
 			)}

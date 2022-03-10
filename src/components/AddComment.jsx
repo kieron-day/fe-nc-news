@@ -18,7 +18,7 @@ const AddComment = (props) => {
 		} else {
 			postComment(props.article_id, userComment)
 				.then(setErrorMessage("Comment Successfully Posted"))
-				.then(props.setCommentAdded(true))
+				.then(props.setCommentUpdated(true))
 				.then(handleReset())
 				.then(props.setCommentCount(props.commentCount + 1))
 				.then(setPostButton(false));

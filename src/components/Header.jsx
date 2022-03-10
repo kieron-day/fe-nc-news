@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchTopics } from "../api";
 
-const Header = () => {
+const Header = ({ user }) => {
 	const [topics, setTopics] = useState([]);
 
 	useEffect(() => {
@@ -42,7 +42,7 @@ const Header = () => {
 			<div className="App-login">
 				<button className="App-login-button">
 					<i className="fa-solid fa-user"></i>
-					<Link to="/login">Login</Link>
+					<Link to="/">{user}</Link>
 				</button>
 			</div>
 		</header>

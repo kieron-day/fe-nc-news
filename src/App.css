@@ -87,14 +87,14 @@
 	height: 40px;
 	width: 150px;
 	border-radius: 5px;
-	background-color: #e5171e;
+	background-color: #ac0f14;
 	border: black solid 1px;
 	color: white;
-	font-size: 1.1em;
+	font-size: 0.9em;
 }
 
 .App-login-button:hover {
-	background-color: #a00f14;
+	background-color: #760b0e;
 }
 
 .App-content {
@@ -316,6 +316,21 @@
 	font-size: 1em;
 }
 
+.comment button {
+	border: rgb(123, 123, 123) solid 2px;
+	background-color: rgb(189, 189, 189);
+}
+
+.comment button:hover {
+	background-color: #a71015;
+	color: white;
+}
+
+.comment button:disabled {
+	background-color: #760b0e;
+	color: rgb(150, 150, 150);
+}
+
 .add-comment {
 	margin: 30px 10px;
 	display: flex;
@@ -371,6 +386,11 @@
 	font-size: 1.1em;
 	font-weight: 500;
 	margin: 5px;
+}
+
+.fa-trash-can {
+	font-size: 1.2em;
+	margin: 10px;
 }
 
 a {
