@@ -367,7 +367,9 @@
 .add-comment-area textarea {
 	margin: 0px;
 }
-.add-comment-area label {
+.add-comment-area h4 {
+	font-size: 1.1em;
+	font-weight: 500;
 	margin: 5px;
 }
 

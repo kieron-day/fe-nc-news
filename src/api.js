@@ -39,12 +39,8 @@ export const fetchComments = (article_id) => {
 };
 
 export const postComment = (article_id, commentObj) => {
-	console.log(commentObj);
 	return api
 		.post(`/articles/${article_id}/comments`, commentObj)
-		.then((response) => {
-			console.log(response);
-		})
 		.catch((err) => {
 			console.log(err);
 		});
