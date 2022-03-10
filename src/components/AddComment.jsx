@@ -11,12 +11,11 @@ const AddComment = (props) => {
 
 	const handleSubmit = (event) => {
 		setPostButton(true);
+		event.preventDefault();
 		if (userComment.body === "") {
-			event.preventDefault();
 			setErrorMessage("Error: Comment Cannot Be Blank");
 			setPostButton(false);
 		} else {
-			event.preventDefault();
 			postComment(props.article_id, userComment)
 				.then(setErrorMessage("Comment Successfully Posted"))
 				.then(props.setCommentAdded(true))
