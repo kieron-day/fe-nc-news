@@ -9,16 +9,12 @@ const CommentCard = ({ comment }) => {
 
 	return (
 		<article className="comment">
-			<section className="comment-top-row">
-				<div className="comment-votes">
-					<i className="fa-solid fa-thumbs-up fa-xl"></i>
-					<h3>{comment.votes}</h3>
-					<i className="fa-solid fa-thumbs-down fa-xl"></i>
-				</div>
-				<h3 className="comment-date">{getDate(comment)}</h3>
+			<section className="comment-left-side">
+				<i className="fa-solid fa-user"></i>
 				<h3 className="comment-author">{comment.author}</h3>
+				<h3 className="comment-date">{getDate(comment)}</h3>
 			</section>
-			<h3>{comment.body}</h3>
+			<h3 className="comment-body">{comment.body}</h3>
 		</article>
 	);
 };

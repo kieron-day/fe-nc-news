@@ -7,6 +7,7 @@ const CommentsList = ({ article: { article_id, comment_count } }) => {
 	const [comments, setComments] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [commentAdded, setCommentAdded] = useState(false);
+	const [commentCount, setCommentCount] = useState(comment_count);
 
 	useEffect(() => {
 		fetchComments(article_id).then((comments) => {
@@ -14,7 +15,7 @@ const CommentsList = ({ article: { article_id, comment_count } }) => {
 			setIsLoading(false);
 			setCommentAdded(false);
 		});
-	}, [article_id, commentAdded]);
+	}, [article_id, commentAdded, commentCount]);
 
 	return (
 		<section>
@@ -24,13 +25,15 @@ const CommentsList = ({ article: { article_id, comment_count } }) => {
 				<>
 					<div className="article-comments">
 						<i className="fa-solid fa-comment fa-xl"></i>
-						<h2>{`Comments (${comment_count})`} </h2>
+						<h2>Comments ({commentCount})</h2>
 					</div>
 					<section>
 						<AddComment
 							article_id={article_id}
-							setCommentAdded={setCommentAdded}
 							commentAdded={commentAdded}
+							setCommentAdded={setCommentAdded}
+							commentCount={commentCount}
+							setCommentCount={setCommentCount}
 						/>
 					</section>
 					{comments.map((comment) => {
