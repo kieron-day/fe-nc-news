@@ -264,13 +264,16 @@
 	justify-content: center;
 	align-items: center;
 	margin-top: 60px;
+	font-size: 1.1em;
 }
 
 .comment {
 	margin: 30px 10px;
 	display: flex;
+	flex-wrap: wrap;
+	min-width: 300px;
 	padding: 0px 30px;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	border: rgb(189, 189, 189) solid 2px;
@@ -280,38 +283,94 @@
 .comment:hover {
 	background-color: rgb(220, 220, 220);
 }
-
-.comment-top-row {
+.comment-left-side {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
-	width: 100%;
-	justify-content: space-evenly;
+	min-width: 200px;
+	padding: 10px 0px;
+	margin: 10px 0px;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	border: rgb(189, 189, 189) solid 2px;
+	border-radius: 4px;
 }
 
-.comment-votes {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	min-width: 100px;
-	margin: 0px 50px;
-	justify-content: space-evenly;
+.comment-author {
+	margin: 5px 20px;
 }
 .comment-date {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	min-width: 100px;
-	margin: 10px 50px;
-	justify-content: space-evenly;
+	font-size: 0.8em;
+	margin: 0px;
 }
-.comment-author {
+.comment-body {
 	display: flex;
-	flex-direction: row;
-	align-items: center;
-	min-width: 100px;
-	margin: 10px 50px;
+	flex-direction: column;
+	flex-wrap: wrap;
+	flex: 5;
+	min-width: 70%;
 	justify-content: space-evenly;
+	min-width: 300px;
+	padding: 20px;
+	font-size: 1em;
+}
+
+.add-comment {
+	margin: 30px 10px;
+	display: flex;
+	padding: 0px 30px;
+	flex-direction: row;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	align-items: center;
+	border: rgb(123, 123, 123) solid 2px;
+	border-radius: 4px;
+	background-color: rgb(189, 189, 189);
+}
+
+.add-comment label {
+	flex: 1;
+	min-width: 200px;
+	font-size: 1.1em;
+	font-weight: 400;
+	margin: 10px 0px;
+}
+
+.add-comment textarea {
+	font-family: Poppins, Arial, Helvetica, sans-serif;
+	flex: 6;
+	min-width: 200px;
+	font-size: 1em;
+	margin: 10px 10px;
+}
+
+.add-comment button {
+	flex: 1;
+	min-width: 150px;
+	height: 40px;
+	font-size: 1em;
+	margin: 20px 10px;
+}
+
+.add-comment-area {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	flex: 5;
+	min-width: 70%;
+	justify-content: space-evenly;
+	min-width: 300px;
+	padding: 20px;
+	font-size: 1em;
+}
+.add-comment-area textarea {
+	margin: 0px;
+}
+.add-comment-area h4 {
+	font-size: 1.1em;
+	font-weight: 500;
+	margin: 5px;
 }
 
 a {

@@ -37,3 +37,11 @@ export const fetchComments = (article_id) => {
 			return comments;
 		});
 };
+
+export const postComment = (article_id, commentObj) => {
+	return api
+		.post(`/articles/${article_id}/comments`, commentObj)
+		.catch((err) => {
+			console.log(err);
+		});
+};
