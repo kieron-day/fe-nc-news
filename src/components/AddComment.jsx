@@ -7,18 +7,22 @@ const AddComment = (props) => {
 		body: "",
 	});
 	const [errorMessage, setErrorMessage] = useState("");
+	const [postButton, setPostButton] = useState(false);
 
 	const handleSubmit = (event) => {
+		setPostButton(true);
 		if (userComment.body === "") {
 			event.preventDefault();
 			setErrorMessage("Error: Comment Cannot Be Blank");
+			setPostButton(false);
 		} else {
 			event.preventDefault();
 			postComment(props.article_id, userComment)
 				.then(setErrorMessage("Comment Successfully Posted"))
 				.then(props.setCommentAdded(true))
 				.then(handleReset())
-				.then(props.setCommentCount(props.commentCount + 1));
+				.then(props.setCommentCount(props.commentCount + 1))
+				.then(setPostButton(false));
 		}
 	};
 
@@ -46,7 +50,12 @@ const AddComment = (props) => {
 				></textarea>
 				<h4>{errorMessage}</h4>
 			</div>
-			<button type="submit" onClick={handleSubmit}>
+			<button
+				id="post-comment"
+				disabled={postButton}
+				type="submit"
+				onClick={handleSubmit}
+			>
 				Post Comment
 			</button>
 		</form>
