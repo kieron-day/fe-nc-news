@@ -11,7 +11,6 @@ const PageVotes = ({ article }) => {
 
 	const handleVote = (change) => {
 		if (voteChange === change) {
-			console.log("here");
 			setVoteChange(() => 0);
 			setVoteCount((voteCount) => voteCount - change);
 			patchVotes(article.article_id, -change);
