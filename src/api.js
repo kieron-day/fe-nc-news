@@ -51,3 +51,11 @@ export const deleteComment = (comment_id) => {
 		console.log(err);
 	});
 };
+
+export const patchVotes = (article_id, change) => {
+	return api
+		.patch(`/articles/${article_id}`, { inc_votes: change })
+		.catch((err) => {
+			console.log(err);
+		});
+};

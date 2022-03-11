@@ -1,18 +1,13 @@
-// Single Article
-// State - Artcile , useparams (Article_id)
-// <article> <h2>
-//Includes <Comments />
-
 import { fetchArticle } from "../api";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import CommentsList from "./CommentsList";
+import PageVotes from "./PageVotes";
 
 const ArticlePage = ({ user }) => {
-	const [article, setArticle] = useState([]);
+	const [article, setArticle] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 	const { article_id } = useParams();
-
 	useEffect(() => {
 		fetchArticle(article_id).then((article) => {
 			setArticle(article);
@@ -36,11 +31,7 @@ const ArticlePage = ({ user }) => {
 			) : (
 				<article>
 					<section className="article-top-row">
-						<div className="article-votes">
-							<i className="fa-solid fa-thumbs-up fa-xl"></i>
-							<h3>{article.votes}</h3>
-							<i className="fa-solid fa-thumbs-down fa-xl"></i>
-						</div>
+						<PageVotes article={article} />
 						<button
 							onClick={() => navigate(-1)}
 							className="article-back-button"
