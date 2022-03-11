@@ -399,6 +399,33 @@
 	margin: 10px;
 }
 
+.error-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	margin: 20px 20px;
+	padding: 50px 40px;
+	background-color: rgb(232, 232, 232);
+	border: rgb(189, 189, 189) solid 2px;
+	text-transform: capitalize;
+}
+
+.error-page a {
+	border-radius: 10px;
+	border: 2px solid rgb(123, 123, 123);
+	width: 200px;
+	margin: 20px;
+	padding: 15px;
+	font-size: 1.1em;
+}
+
+.error-page a:hover {
+	background-color: rgb(218, 218, 218);
+	border-color: #e5171e;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;

@@ -31,7 +31,7 @@ const Header = ({ user }) => {
 					return (
 						<Link
 							key={topic.slug}
-							to={`/topics/${topic.slug}/articles`}
+							to={`/topics/${topic.slug}`}
 							className="App-navigation-link"
 						>
 							{topic.slug}

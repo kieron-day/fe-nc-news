@@ -1,6 +1,7 @@
 import { fetchArticles } from "../api";
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
+import ErrorTopics from "./ErrorTopics";
 import { useParams } from "react-router-dom";
 
 const ArticleList = () => {
@@ -8,7 +9,7 @@ const ArticleList = () => {
 	const [sortBy, setSortBy] = useState("created_at");
 	const [order, setOrder] = useState("desc");
 	const [isLoading, setIsLoading] = useState(true);
-	const [error, setError] = useState(null);
+	const [error, setError] = useState(false);
 	const { topic } = useParams();
 
 	useEffect(() => {
@@ -18,13 +19,19 @@ const ArticleList = () => {
 				setIsLoading(false);
 			})
 			.catch((err) => {
-				setError(err);
-				console.log(error);
+				setError(true);
 			});
 	}, [topic, sortBy, order]);
 
 	if (error) {
-		return <p>Lost?</p>;
+		return (
+			<ErrorTopics
+				errorMessage={"Topic Not Found"}
+				type={"topic"}
+				error={error}
+				setError={setError}
+			/>
+		);
 	}
 	return (
 		<div className="App-content">
