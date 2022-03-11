@@ -8,15 +8,24 @@ const ArticleList = () => {
 	const [sortBy, setSortBy] = useState("created_at");
 	const [order, setOrder] = useState("desc");
 	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState(null);
 	const { topic } = useParams();
 
 	useEffect(() => {
-		fetchArticles(topic, sortBy, order).then((articles) => {
-			setArticleList(articles);
-			setIsLoading(false);
-		});
+		fetchArticles(topic, sortBy, order)
+			.then((articles) => {
+				setArticleList(articles);
+				setIsLoading(false);
+			})
+			.catch((err) => {
+				setError(err);
+				console.log(error);
+			});
 	}, [topic, sortBy, order]);
 
+	if (error) {
+		return <p>Lost?</p>;
+	}
 	return (
 		<div className="App-content">
 			{isLoading ? (
