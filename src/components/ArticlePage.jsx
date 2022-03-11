@@ -2,28 +2,31 @@ import { fetchArticle } from "../api";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import CommentsList from "./CommentsList";
+import ErrorPage from "./ErrorPage";
 import PageVotes from "./PageVotes";
+import { getDate } from "./utils/getDate";
 
 const ArticlePage = ({ user }) => {
 	const [article, setArticle] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState(false);
 	const { article_id } = useParams();
 	useEffect(() => {
-		fetchArticle(article_id).then((article) => {
-			setArticle(article);
-			setIsLoading(false);
-		});
+		fetchArticle(article_id)
+			.then((article) => {
+				setArticle(article);
+				setIsLoading(false);
+			})
+			.catch((err) => {
+				setError(true);
+			});
 	}, [article_id]);
-
-	const getDate = (article) => {
-		const getDay = article.created_at.slice(8, 10);
-		const getMonth = article.created_at.slice(5, 7);
-		const getYear = article.created_at.slice(0, 4);
-		return `${getDay}/${getMonth}/${getYear}`;
-	};
 
 	let navigate = useNavigate();
 
+	if (error) {
+		return <ErrorPage errorMessage={"Article Not Found"} type={"article"} />;
+	}
 	return (
 		<main className="article-page">
 			{isLoading ? (
